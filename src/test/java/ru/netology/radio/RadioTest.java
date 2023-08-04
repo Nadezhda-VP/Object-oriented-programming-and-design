@@ -6,6 +6,46 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
+
+    @Test
+    public void radioConstructorTest0() {
+        Radio radio = new Radio(10);
+        radio.setCurrentStation(8);
+        radio.next();
+        assertEquals(9, radio.getCurrentStation());
+
+        radio.next();
+        assertEquals(0, radio.getCurrentStation());
+
+        radio.next();
+        assertEquals(1, radio.getCurrentStation());
+    }
+
+    @Test
+    public void radioConstructorTest1() {
+        Radio radio = new Radio(10);
+        radio.setCurrentStation(9);
+
+        assertEquals(9, radio.getCurrentStation());
+    }
+
+    @Test
+    public void radioConstructorTest2() {
+        Radio radio = new Radio(10);
+        radio.setCurrentStation(9);
+        radio.next();
+
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    public void radioConstructorTest3() {
+        Radio radio = new Radio(10);
+        radio.setCurrentStation(0);
+        radio.prev();
+
+        assertEquals(9, radio.getCurrentStation());
+    }
     @Test
     public void shouldSwitchNextStation1() { //переключение на следующую станцию
         Radio radio = new Radio();
