@@ -1,29 +1,30 @@
 package ru.netology.radio;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Value;
+import lombok.NoArgsConstructor;
+
 
 @Data
+@AllArgsConstructor
 public class Radio {
-    private int minStation;
-    private int maxStation;
-    private int currentStation;
-    private int minVolume;
-    private int maxVolume;
-    private int currentVolume;
 
-    public Radio() {
+    private int maxStation  ;
+    private int currentStation ;
+    private int maxVolume  ;
+    private int currentVolume ;
+
+    public  Radio() {
         maxStation = 9;
-        minStation = 0;
         maxVolume = 100;
-        minVolume = 0;
     }
 
 
     public Radio(int stationsCount) {
         this.currentStation = stationsCount;
         maxStation = stationsCount - 1;
+
     }
 
     public void next() {
@@ -31,11 +32,11 @@ public class Radio {
             currentStation++;
             return;
         }
-        currentStation = minStation;
+        currentStation = 0;
     }
 
     public void prev() {
-        if (currentStation != minStation) {
+        if (currentStation != 0) {
             currentStation--;
         } else {
             currentStation = maxStation;
@@ -49,7 +50,7 @@ public class Radio {
     }
 
     public void reduceVolume() {
-        if (currentVolume > minVolume) {
+        if (currentVolume > 0) {
             currentVolume--;
         }
     }
@@ -59,7 +60,7 @@ public class Radio {
     }*/
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation < minStation) {
+        if (currentStation < 0) {
             return;
         }
         if (currentStation > maxStation) {
@@ -68,19 +69,20 @@ public class Radio {
         this.currentStation = currentStation;
     }
 
-   /* public int getCurrentVolume() {
+    /*public int getCurrentVolume() {
         return currentVolume;
-    }
+    }*/
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < minVolume) {
+        if (currentVolume < 0) {
             return;
         }
         if (currentVolume > maxVolume) {
             return;
         }
         this.currentVolume = currentVolume;
-    }*/
+    }
+
 
 
 }

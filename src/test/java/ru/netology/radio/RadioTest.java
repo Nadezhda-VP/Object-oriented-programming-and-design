@@ -198,7 +198,7 @@ public class RadioTest {
         assertEquals(expected, actual);
     }
 
-   /* @Test
+    @Test
     public void notBelowMin1() {//не уменьшает минимальное значение
         Radio radio = new Radio();
         //radio.setCurrentVolume(100);
@@ -219,7 +219,10 @@ public class RadioTest {
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
-    }*/
+    }
+
+
+
 
 
 }
